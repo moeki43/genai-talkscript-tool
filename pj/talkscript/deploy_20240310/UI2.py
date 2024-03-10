@@ -4,7 +4,6 @@ import pandas as pd
 
 from prompt import *
 from functions import *
-from functions_openai import *
 
 _prompt_talkscript_plot = """ここまでの会話を参考に、足りない情報は適宜補完しつつ、営業トークスクリプトを作成してください。
 どんな内容から順に確認すればよいかをフォーマットに倣って出力してください。
@@ -34,11 +33,12 @@ _func_extract_next_question = make_function('extract_next_interview_questions_or
 st.set_page_config(layout="wide")
 
 with st.sidebar:
-    user_api_key = st.text_input('Enter your OpenAI API key (not AOAI key)')
+    user_api_key = st.text_input('Enter your OpenAI API key (not AOAI key)' ,type='password')
     
     if user_api_key:
-        import openai
-        openai.api_key = user_api_key
+        import os
+        os.environ["OPENAI_API_KEY"] = user_api_key
+        from functions_openai import *
         
 st.write('Sales Talk Script Maker powered by GenAI')
 canvas_pgbar = st.empty()
