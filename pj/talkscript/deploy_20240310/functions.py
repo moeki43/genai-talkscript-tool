@@ -95,7 +95,7 @@ def make_graphviz_chart(df_questions):
         graph.edge(edge[0],edge[1])
     error_text = None
     if len(_error_undifined_IDs) > 0:
-        error_text = f'「{','.join(_error_undifined_IDs)}」は未定義のIDです。'
+        error_text = ','.join(_error_undifined_IDs) + 'は未定義のIDです。'
     return graph, error_text
 
 # Function Calling用の関数を作るための関数。引数は順に関数名、関数の説明、変数の説明、出力形式の指定
