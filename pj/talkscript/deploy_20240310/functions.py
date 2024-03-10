@@ -74,7 +74,7 @@ def make_questions_dataframe(list_questions,default_next_questions=True):
 
 def make_graphviz_chart(df_questions):
     _dict_ID_questions = {ser['ID']:ser['Questions'] for _,ser in df_questions.iterrows()}
-    graph = graphviz.Digraph(graph_attr={'rankdir':'LR'})
+    graph = graphviz.Digraph()#graph_attr={'rankdir':'LR'})
     edges = []
     _error_undifined_IDs = []
     for _,ser in df_questions.iterrows():
