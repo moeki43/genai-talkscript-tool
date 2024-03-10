@@ -1,6 +1,8 @@
 # 生成AI
 import os
 from openai import OpenAI 
+import openai
+openai.api_key = ''
 
 # GPTモデルインスタンスを立ち上げる
 client = OpenAI()
